@@ -1,0 +1,5 @@
+RewriteEngine On
+
+#RewriteRule ^admin/ /cgi-bin/film.cgi [L]
+RewriteRule ^admin/film/? /cgi-bin/film.cgi [L]
+RewriteRule ^admin / [L]

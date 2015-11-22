@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Films :: Admin</title>
+    <link rel="stylesheet" href="/res/style.css"/>
+</head>
+
+<body>
+    <div class="container">
+        <TMPL_INCLUDE  "menu.html">
+        
+        <div class="content">
+            <h1>Films</h1>
+            
+            
+            
+            
+            <!-- TMPL_IF FILMS -->
+            
+          
+            
+            <form method="post" action="/admin/film">
+            
+                <div class="control">
+                    <div style="float: left">
+                        <input type="text" placeholder="Film name" value="<!-- TMPL_VAR SFILM -->" name="sfilm"/>
+                        <input type="text" placeholder="Actor name" value="<!-- TMPL_VAR SACTOR -->" name="sactor"/>
+                        <input type="submit" value="Search"/>
+                    </div>
+                    <input type="button" onclick="location.href='/admin/film/new'" value="Add new"/>
+                    <!-- TMPL_IF FILMS --> <input type="submit" value="Delete selected" onclick="this.form.action='/admin/film/delete'; return confirm('Delete selected?')"/> <!-- /TMPL_IF -->
+                </div>
+            
+                <div class="paging">
+                <!-- TMPL_LOOP PAGING -->
+                    <!-- TMPL_IF ACTIVE -->
+                        <strong><!-- TMPL_VAR TEXT --></strong>
+                    <!-- TMPL_ELSE -->
+                        <a href="<!-- TMPL_VAR HREF -->"><!-- TMPL_VAR TEXT --></a>
+                    <!-- /TMPL_IF -->
+                    <!-- TMPL_UNLESS __last__ --> | <!-- /TMPL_UNLESS -->
+                <!-- /TMPL_LOOP -->
+                </div>
+                
+                <table class="films">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name <a href="/admin/film/ord/film_name/d<!-- TMPL_VAR ORDAPP -->">&#8659;</a> <a href="/admin/film/ord/film_name/a<!-- TMPL_VAR ORDAPP -->">&#8657;</a></th>
+                        <th>Year</th>
+                        <th>Actors</th>
+                        <th></th>
+                    </tr>
+                    <!-- TMPL_LOOP FILMS -->
+                        <tr>
+                            <td><!-- TMPL_VAR FILM_ID --></td>
+                            <td><a href="/admin/film/<!-- TMPL_VAR FILM_ID -->"><!-- TMPL_VAR FILM_NAME --></a></td>
+                            <td><!-- TMPL_VAR FILM_YEAR --></td>
+                            <td><!-- TMPL_VAR ACTORS --></td>
+                            <td><input type="checkbox" value="<!-- TMPL_VAR FILM_ID -->" name="film_id"></th>
+                        </tr>
+                    <!-- /TMPL_LOOP -->
+                </table>
+                
+                <div class="paging">
+                <!-- TMPL_LOOP PAGING -->
+                    <!-- TMPL_IF ACTIVE -->
+                        <strong><!-- TMPL_VAR TEXT --></strong>
+                    <!-- TMPL_ELSE -->
+                        <a href="<!-- TMPL_VAR HREF -->"><!-- TMPL_VAR TEXT --></a>
+                    <!-- /TMPL_IF -->
+                    <!-- TMPL_UNLESS __last__ --> | <!-- /TMPL_UNLESS -->
+                <!-- /TMPL_LOOP -->
+                </div>
+            
+            </form>
+            
+            <!-- TMPL_ELSE -->
+                <p>No films</p>
+            <!-- /TMPL_IF -->
+            
+        </div>
+    </div>
+</body>
+</html>

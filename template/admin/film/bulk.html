@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bulk Upload :: Films :: Admin</title>
+    <link rel="stylesheet" href="/res/style.css"/>
+</head>
+
+<body>
+    <div class="container">
+        <TMPL_INCLUDE  "menu.html">
+        
+        <div class="content">
+            <h1>Bulk Upload</h1>
+            
+            <form method="post" enctype="multipart/form-data" action="/admin/film/bulk/upload">
+                <input type="file" name="file"/> <input type="submit" value="Send"/>
+            </form>    
+        </div>
+    </div>
+</body>
+</html>

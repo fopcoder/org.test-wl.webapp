@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><!-- TMPL_VAR FILM_NAME --> :: Films :: Admin</title>
+    <link rel="stylesheet" href="/res/style.css"/>
+    <script>
+        
+        function checkForm(){
+            if( document.getElementById('film_name').value.lenght < 1 ) {
+                alert('name is required');
+                return false;
+            }
+            
+            if( document.getElementById('film_year').value.length != 4 ) {
+                alert('year is required');
+                return false;
+            }
+            if( document.getElementById('format_id').value == 0 ) {
+                alert('format is required');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <TMPL_INCLUDE  "menu.html">
+        
+        <div class="content">
+            <h1>Film "<!-- TMPL_VAR FILM_NAME -->"</h1>
+            
+            <form method="post" action="/admin/film/save">
+                <input type="hidden" name="film_id" value="<!-- TMPL_VAR FILM_ID -->"/>
+                <table class="edit-form">
+                    <tr>
+                        <th>ID:</th>
+                        <td><!-- TMPL_VAR FILM_ID --></td>
+                    </tr>
+                    <tr>
+                        <th>Name:<span class="required">*</span></th>
+                        <td><input type="text" name="film_name" id="film_name" value="<!-- TMPL_VAR FILM_NAME -->"/></td>
+                    </tr>
+                    <tr>
+                        <th>Year:<span class="required">*</span></th>
+                        <td><input type="text" name="film_year" id="film_year" value="<!-- TMPL_VAR FILM_YEAR -->"/></td>
+                    </tr>
+                    <tr>
+                        <th>Format:<span class="required">*</span></th>
+                        <td>
+                            <select name="format_id" id="format_id">
+                                <option value="0">-- select format --</option>
+                                <!-- TMPL_LOOP FORMATS -->
+                                <option value="<!-- TMPL_VAR FORMAT_ID -->" <!-- TMPL_VAR ACTIVE -->><!-- TMPL_VAR FORMAT_NAME --></option>
+                                <!-- /TMPL_LOOP -->
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Actors:</th>
+                        <td><textarea name="actors"><!-- TMPL_VAR ACTORS --></textarea></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Save" onclick="return checkForm()"/></td>
+                    </tr>
+                </table>
+            </form>
+               
+        </div>
+    </div>
+</body>
+</html>

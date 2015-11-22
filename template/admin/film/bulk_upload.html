@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bulk Upload Results :: Films :: Admin</title>
+    <link rel="stylesheet" href="/res/style.css"/>
+</head>
+<body>
+    <div class="container">
+        <TMPL_INCLUDE  "menu.html">
+        
+        <div class="content">
+            <h1>Bulk Upload Errors</h1>
+            
+            <table class="films">
+                <tr>
+                    <th>Name</th>
+                    <th>Year</th>
+                    <th>Error</th>
+                </tr>
+                <!-- TMPL_LOOP ERRORS -->
+                    <tr>
+                        <td><!-- TMPL_VAR FILM_NAME --></td>
+                        <td><!-- TMPL_VAR FILM_YEAR --></td>
+                        <td><!-- TMPL_VAR ERROR -->"</th>
+                    </tr>
+                <!-- /TMPL_LOOP -->
+            </table>    
+        </div>
+    </div>
+</body>
+</html>

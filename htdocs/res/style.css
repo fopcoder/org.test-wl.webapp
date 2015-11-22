@@ -1,0 +1,30 @@
+BODY { margin:0; padding:0; }
+
+* { font-family: tahoma, arial, sans-serif }
+
+H1 { font-size: 25px }
+A { color: #555 }
+A:hover { text-decoration: none }
+
+.container {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+.content { margin-left: 20px; margin-right: 20px; }
+
+.films {  width: 100% }
+.films TD, .films TH { padding: 5px; text-align: center; }
+.films TH { background: #ddd;  }
+
+.menu { background: #ddd; line-height: 40px; margin-bottom: 10px; padding-left: 20px }
+
+.paging { margin-top: 10px; margin-bottom: 10px; }
+
+.control { text-align: right }
+
+.edit-form TH { width: 100px; text-align: right; padding: 5px; }
+.edit-form INPUT, .edit-form TEXTAREA, .edit-form SELECT { width: 400px; }
+.edit-form TEXTAREA { height: 100px; }
+
+.required { color: red; font-weight: bold }
